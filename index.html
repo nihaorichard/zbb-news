@@ -48,10 +48,10 @@
        ===================================================== */
 
     /* HEADER */
-    --title-bar-color: #24495d;
+    --title-bar-color: #127377;
 
     /* BACKGROUND BETWEEN CARDS */
-    --grid-background: #127377;
+    --grid-background: #24495d;
 
     /* PAGE BACKGROUND */
     --page-background: #f3f3f3;
@@ -65,7 +65,6 @@
        ===================================================== */
 
     /* CATEGORY */
-    --category-size: 0px;
 
     /* NEWS TITLE */
     --title-size: 15px;
@@ -895,36 +894,6 @@ function createNewsCard(
 
     content.className =
         "event-content";
-
-
-    /* =====================================================
-       CATEGORY
-       ===================================================== */
-
-    if (
-        article.category
-    ) {
-
-        const category =
-            document.createElement(
-                "div"
-            );
-
-
-        category.className =
-            "event-category";
-
-
-        category.textContent =
-            article.category;
-
-
-        content.appendChild(
-            category
-        );
-
-    }
-
 
     /* =====================================================
        TITLE
