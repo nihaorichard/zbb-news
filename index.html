@@ -1,0 +1,1091 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
+
+<title>Zentralklinik Bad Berka – Pressemeldungen</title>
+
+
+<style>
+
+/* =========================================================
+   EASY SETTINGS
+   ========================================================= */
+
+:root {
+
+    /* NUMBER OF COLUMNS */
+    --columns: 6;
+
+    /* NUMBER OF NEWS ARTICLES TO SHOW */
+    --events: 20;
+
+    /* CARD HEIGHT */
+    --card-height: 290px;
+
+    /* IMAGE HEIGHT */
+    --image-height: 150px;
+
+    /* GAP BETWEEN CARDS */
+    --gap: 12px;
+
+    /* PAGE EDGE */
+    --page-padding: 14px;
+
+    /* CARD CORNER */
+    --radius: 8px;
+
+
+    /* =====================================================
+       COLORS
+       ===================================================== */
+
+    /* HEADER */
+    --title-bar-color: #e30613;
+
+    /* BACKGROUND BETWEEN CARDS */
+    --grid-background: #f3f3f3;
+
+    /* PAGE BACKGROUND */
+    --page-background: #f3f3f3;
+
+    /* CARD BACKGROUND */
+    --card-background: #ffffff;
+
+
+    /* =====================================================
+       TEXT SIZES
+       ===================================================== */
+
+    /* CATEGORY */
+    --category-size: 13px;
+
+    /* NEWS TITLE */
+    --title-size: 20px;
+
+    /* DATE */
+    --date-size: 14px;
+
+    /* DESCRIPTION */
+    --description-size: 10px;
+
+}
+
+
+/* =========================================================
+   GENERAL
+   ========================================================= */
+
+* {
+
+    box-sizing: border-box;
+
+}
+
+
+html,
+body {
+
+    margin: 0;
+    padding: 0;
+
+    width: 100%;
+
+    min-height: 100%;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    background:
+        var(--page-background);
+
+    color:
+        #111;
+
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.header {
+
+    min-height: 58px;
+
+    display: flex;
+
+    align-items: center;
+
+    padding:
+        0 var(--page-padding);
+
+    background:
+        var(--title-bar-color);
+
+    color:
+        white;
+
+    border-bottom:
+        1px solid rgba(0,0,0,0.15);
+
+}
+
+
+.header-title {
+
+    font-size: 34px;
+
+    font-weight: 700;
+
+    margin: 0;
+
+    color:
+        white;
+
+}
+
+
+.header-status {
+
+    margin-left: auto;
+
+    font-size: 12px;
+
+    color:
+        rgba(255,255,255,0.9);
+
+}
+
+
+/* =========================================================
+   NEWS GRID
+   ========================================================= */
+
+#events {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            var(--columns),
+            minmax(0, 1fr)
+        );
+
+    gap:
+        var(--gap);
+
+    padding:
+        var(--page-padding);
+
+    background:
+        var(--grid-background);
+
+    min-height:
+        calc(100vh - 58px);
+
+    height:
+        auto;
+
+    overflow:
+        visible;
+
+}
+
+
+/* =========================================================
+   NEWS CARD
+   ========================================================= */
+
+.event {
+
+    height:
+        var(--card-height);
+
+    min-width:
+        0;
+
+    background:
+        var(--card-background);
+
+    border-radius:
+        var(--radius);
+
+    overflow:
+        hidden;
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    box-shadow:
+        0 1px 5px rgba(0,0,0,0.14);
+
+    cursor:
+        pointer;
+
+    transition:
+        transform 0.15s ease,
+        box-shadow 0.15s ease;
+
+}
+
+
+.event:hover {
+
+    transform:
+        translateY(-2px);
+
+    box-shadow:
+        0 4px 10px rgba(0,0,0,0.18);
+
+}
+
+
+/* =========================================================
+   IMAGE
+   ========================================================= */
+
+.event-image {
+
+    width:
+        100%;
+
+    height:
+        var(--image-height);
+
+    flex-shrink:
+        0;
+
+    overflow:
+        hidden;
+
+    background:
+        #dddddd;
+
+}
+
+
+.event-image img {
+
+    width:
+        100%;
+
+    height:
+        100%;
+
+    display:
+        block;
+
+    object-fit:
+        cover;
+
+}
+
+
+/* =========================================================
+   CONTENT
+   ========================================================= */
+
+.event-content {
+
+    padding:
+        11px 13px 12px;
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    flex:
+        1;
+
+    min-height:
+        0;
+
+}
+
+
+/* =========================================================
+   CATEGORY
+   ========================================================= */
+
+.event-category {
+
+    font-size:
+        var(--category-size);
+
+    line-height:
+        1.2;
+
+    color:
+        #888888;
+
+    font-weight:
+        600;
+
+    margin-bottom:
+        4px;
+
+}
+
+
+/* =========================================================
+   TITLE
+   ========================================================= */
+
+.event-title {
+
+    font-size:
+        var(--title-size);
+
+    line-height:
+        1.15;
+
+    font-weight:
+        700;
+
+    color:
+        #111111;
+
+    margin-bottom:
+        8px;
+
+}
+
+
+/* =========================================================
+   DATE
+   ========================================================= */
+
+.event-date {
+
+    font-size:
+        var(--date-size);
+
+    font-weight:
+        600;
+
+    color:
+        #222222;
+
+    margin-bottom:
+        9px;
+
+}
+
+
+/* =========================================================
+   DESCRIPTION
+   ========================================================= */
+
+.event-description {
+
+    font-size:
+        var(--description-size);
+
+    line-height:
+        1.35;
+
+    color:
+        #444444;
+
+    overflow:
+        hidden;
+
+    display:
+        -webkit-box;
+
+    -webkit-box-orient:
+        vertical;
+
+    -webkit-line-clamp:
+        7;
+
+}
+
+
+/* =========================================================
+   NO IMAGE
+   ========================================================= */
+
+.no-image {
+
+    width:
+        100%;
+
+    height:
+        100%;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    color:
+        #999999;
+
+    font-size:
+        13px;
+
+}
+
+
+/* =========================================================
+   LOADING
+   ========================================================= */
+
+.loading {
+
+    grid-column:
+        1 / -1;
+
+    padding:
+        50px;
+
+    text-align:
+        center;
+
+    color:
+        #777;
+
+}
+
+
+/* =========================================================
+   ERROR
+   ========================================================= */
+
+.error {
+
+    grid-column:
+        1 / -1;
+
+    padding:
+        50px;
+
+    text-align:
+        center;
+
+    color:
+        #b00000;
+
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (min-width: 1101px) {
+
+    :root {
+
+        --columns: 6;
+
+    }
+
+}
+
+
+@media (max-width: 1100px) {
+
+    :root {
+
+        --columns: 4;
+
+    }
+
+}
+
+
+@media (max-width: 750px) {
+
+    :root {
+
+        --columns: 2;
+
+    }
+
+}
+
+
+@media (max-width: 480px) {
+
+    :root {
+
+        --columns: 1;
+
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- ======================================================
+     HEADER
+     ====================================================== -->
+
+<header class="header">
+
+    <h1 class="header-title">
+        Zentralklinik Bad Berka – Pressemeldungen
+    </h1>
+
+    <div
+        class="header-status"
+        id="status"
+    >
+        Lade …
+    </div>
+
+</header>
+
+
+<!-- ======================================================
+     NEWS GRID
+     ====================================================== -->
+
+<main id="events">
+
+    <div class="loading">
+        Pressemeldungen werden geladen …
+    </div>
+
+</main>
+
+
+<script>
+
+/* =========================================================
+   CLOUDFLARE WORKER
+   ========================================================= */
+
+const API_URL =
+    "https://zbb-news.richardthiele03.workers.dev";
+
+
+/* =========================================================
+   NUMBER OF NEWS ARTICLES
+   ========================================================= */
+
+const EVENT_COUNT = 20;
+
+
+/* =========================================================
+   REFRESH TIME
+   10 MINUTES
+   ========================================================= */
+
+const REFRESH_TIME =
+    10 * 60 * 1000;
+
+
+/* =========================================================
+   LOAD NEWS
+   ========================================================= */
+
+async function loadEvents() {
+
+    const container =
+        document.getElementById(
+            "events"
+        );
+
+    const status =
+        document.getElementById(
+            "status"
+        );
+
+
+    try {
+
+        status.textContent =
+            "Aktualisiere …";
+
+
+        const response =
+            await fetch(
+                API_URL +
+                "?t=" +
+                Date.now()
+            );
+
+
+        if (!response.ok) {
+
+            throw new Error(
+                "HTTP " +
+                response.status
+            );
+
+        }
+
+
+        const data =
+            await response.json();
+
+
+        /*
+         * Zentralklinik Worker uses
+         * "articles", not "events".
+         */
+
+        if (
+            !data.success ||
+            !Array.isArray(
+                data.articles
+            )
+        ) {
+
+            throw new Error(
+                "Ungültige Daten vom Worker"
+            );
+
+        }
+
+
+        /*
+         * Take the requested number.
+         */
+
+        const articles =
+            data.articles.slice(
+                0,
+                EVENT_COUNT
+            );
+
+
+        /*
+         * Clear old cards.
+         */
+
+        container.innerHTML =
+            "";
+
+
+        /*
+         * No articles.
+         */
+
+        if (
+            articles.length === 0
+        ) {
+
+            container.innerHTML = `
+                <div class="loading">
+                    Keine Pressemeldungen gefunden.
+                </div>
+            `;
+
+        }
+
+
+        /*
+         * Create cards.
+         */
+
+        else {
+
+            for (
+                const article
+                of articles
+            ) {
+
+                container.appendChild(
+                    createNewsCard(
+                        article
+                    )
+                );
+
+            }
+
+        }
+
+
+        /*
+         * Status.
+         */
+
+        const now =
+            new Date();
+
+
+        status.textContent =
+            `${articles.length} Meldungen · ` +
+            `${now.toLocaleTimeString(
+                "de-DE",
+                {
+                    hour: "2-digit",
+                    minute: "2-digit"
+                }
+            )}`;
+
+
+    }
+
+    catch (error) {
+
+        console.error(
+            error
+        );
+
+
+        container.innerHTML = `
+
+            <div class="error">
+
+                Pressemeldungen konnten
+                nicht geladen werden.
+
+                <br><br>
+
+                ${escapeHTML(
+                    error.message
+                )}
+
+            </div>
+
+        `;
+
+
+        status.textContent =
+            "Fehler";
+
+    }
+
+}
+
+
+/* =========================================================
+   CREATE NEWS CARD
+   ========================================================= */
+
+function createNewsCard(
+    article
+) {
+
+    const card =
+        document.createElement(
+            "article"
+        );
+
+
+    card.className =
+        "event";
+
+
+    /*
+     * Open original Zentralklinik
+     * article when clicked.
+     */
+
+    card.onclick =
+        function () {
+
+            if (
+                article.url
+            ) {
+
+                window.open(
+                    article.url,
+                    "_blank"
+                );
+
+            }
+
+        };
+
+
+    /* =====================================================
+       IMAGE
+       ===================================================== */
+
+    const imageContainer =
+        document.createElement(
+            "div"
+        );
+
+
+    imageContainer.className =
+        "event-image";
+
+
+    if (
+        article.image
+    ) {
+
+        const image =
+            document.createElement(
+                "img"
+            );
+
+
+        image.src =
+            article.image;
+
+
+        image.alt =
+            article.title ||
+            "";
+
+
+        image.loading =
+            "lazy";
+
+
+        image.onerror =
+            function () {
+
+                imageContainer.innerHTML =
+                    `<div class="no-image">
+                        Kein Bild
+                    </div>`;
+
+            };
+
+
+        imageContainer.appendChild(
+            image
+        );
+
+    }
+
+    else {
+
+        imageContainer.innerHTML =
+            `<div class="no-image">
+                Kein Bild
+            </div>`;
+
+    }
+
+
+    /* =====================================================
+       CONTENT
+       ===================================================== */
+
+    const content =
+        document.createElement(
+            "div"
+        );
+
+
+    content.className =
+        "event-content";
+
+
+    /* =====================================================
+       CATEGORY
+       ===================================================== */
+
+    if (
+        article.category
+    ) {
+
+        const category =
+            document.createElement(
+                "div"
+            );
+
+
+        category.className =
+            "event-category";
+
+
+        category.textContent =
+            article.category;
+
+
+        content.appendChild(
+            category
+        );
+
+    }
+
+
+    /* =====================================================
+       TITLE
+       ===================================================== */
+
+    const title =
+        document.createElement(
+            "div"
+        );
+
+
+    title.className =
+        "event-title";
+
+
+    title.textContent =
+        article.title ||
+        "Pressemeldung";
+
+
+    content.appendChild(
+        title
+    );
+
+
+    /* =====================================================
+       DATE
+       ===================================================== */
+
+    if (
+        article.date
+    ) {
+
+        const date =
+            document.createElement(
+                "div"
+            );
+
+
+        date.className =
+            "event-date";
+
+
+        date.textContent =
+            article.date;
+
+
+        content.appendChild(
+            date
+        );
+
+    }
+
+
+    /* =====================================================
+       DESCRIPTION
+       ===================================================== */
+
+    if (
+        article.description
+    ) {
+
+        const description =
+            document.createElement(
+                "div"
+            );
+
+
+        description.className =
+            "event-description";
+
+
+        description.textContent =
+            article.description;
+
+
+        content.appendChild(
+            description
+        );
+
+    }
+
+
+    /* =====================================================
+       ASSEMBLE
+       ===================================================== */
+
+    card.appendChild(
+        imageContainer
+    );
+
+
+    card.appendChild(
+        content
+    );
+
+
+    return card;
+
+}
+
+
+/* =========================================================
+   HTML ESCAPE
+   ========================================================= */
+
+function escapeHTML(
+    value
+) {
+
+    return String(
+        value
+    )
+
+        .replace(
+            /&/g,
+            "&amp;"
+        )
+
+        .replace(
+            /</g,
+            "&lt;"
+        )
+
+        .replace(
+            />/g,
+            "&gt;"
+        )
+
+        .replace(
+            /"/g,
+            "&quot;"
+        )
+
+        .replace(
+            /'/g,
+            "&#039;"
+        );
+
+}
+
+
+/* =========================================================
+   INITIAL LOAD
+   ========================================================= */
+
+loadEvents();
+
+
+/* =========================================================
+   AUTOMATIC REFRESH
+   ========================================================= */
+
+setInterval(
+    loadEvents,
+    REFRESH_TIME
+);
+
+</script>
+
+
+</body>
+
+</html>
