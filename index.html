@@ -64,16 +64,12 @@
        TEXT SIZES
        ===================================================== */
 
-    /* CATEGORY */
 
     /* NEWS TITLE */
     --title-size: 15px;
 
-    /* DATE */
-    --date-size: 7px;
-
     /* DESCRIPTION */
-    --description-size: 20px;
+    --description-size: 10px;
 
 }
 
@@ -365,25 +361,6 @@ body {
 }
 
 
-/* =========================================================
-   DATE
-   ========================================================= */
-
-.event-date {
-
-    font-size:
-        var(--date-size);
-
-    font-weight:
-        600;
-
-    color:
-        #222222;
-
-    margin-bottom:
-        9px;
-
-}
 
 
 /* =========================================================
@@ -919,33 +896,6 @@ function createNewsCard(
     );
 
 
-    /* =====================================================
-       DATE
-       ===================================================== */
-
-    if (
-        article.date
-    ) {
-
-        const date =
-            document.createElement(
-                "div"
-            );
-
-
-        date.className =
-            "event-date";
-
-
-        date.textContent =
-            article.date;
-
-
-        content.appendChild(
-            date
-        );
-
-    }
 
 
     /* =====================================================
